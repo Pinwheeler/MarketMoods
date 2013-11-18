@@ -87,10 +87,15 @@ for row in companies :
 
 			#update global variances	
 			args = (word,valence,count,average_valence)
-			#cur.callproc("updatevalence",args)
+			valence_string = "CALL updatevalence" + str(args)
+			cur.execute(valence_string)
 
 		#create prediction for tommorow
-		overall_company_valence = overall_company_valence / company_word_count
+		try:
+			overall_company_valence = overall_company_valence / company_word_count
+		except Exception, e:
+			overall_company_valence = 0.0	
+		
 		create_args = (stock_ticker, str(overall_company_valence), stock_name)
 		create_string = str(create_args)
 		cur.execute("CALL create_prediction" + create_string)
@@ -100,19 +105,20 @@ for row in companies :
 		fetch_string = "CALL fetch_movement_today" + str(fetchargs)
 		rows = cur.execute(fetch_string)
 		movement = cur.fetchall()
-		predicted_move = movement[0][2]
-		difference = 0
-		try:
-			difference = stock_change - predicted_move
-		except Exception, e:
-			predicted_move = 1;
-		if stock_change == 0:
-			stock_change = 1
-		percentage = min(stock_change,predicted_move)/max(stock_change,predicted_move)
-		movement_update_args = (stock_ticker,stock_change,difference,percentage,stock_name)
-		
-		update_string = "CALL evaluate_prediction" + str(movement_update_args)
-		cur.execute(update_string)
+		if movement:
+			predicted_move = movement[0][2]
+			difference = 0
+			try:
+				difference = stock_change - predicted_move
+			except Exception, e:
+				predicted_move = 1;
+			if stock_change == 0:
+				stock_change = 1
+			percentage = min(stock_change,predicted_move)/max(stock_change,predicted_move)
+			movement_update_args = (stock_ticker,stock_change,difference,percentage,stock_name)
+			
+			update_string = "CALL evaluate_prediction" + str(movement_update_args)
+			cur.execute(update_string)
 
 	else:
 		print stock_name + ": No Change in Stock Price"
