@@ -10,6 +10,7 @@ https://docs.djangoproject.com/en/1.6/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 
@@ -24,9 +25,21 @@ DEBUG = True
 
 TEMPLATE_DEBUG = True
 
+TEMPLATE_LOADERS = (
+    'django.template.loaders.filesystem.Loader',
+    'django.template.loaders.app_directories.Loader',
+)
+
 TEMPLATE_DIRS = (
-os.path.join(BASE_DIR,'marketmoods')
-    )
+    os.path.join(os.path.join(BASE_DIR, 'marketmoods'), 'templates'),
+    os.path.join(BASE_DIR, 'templates'),
+    BASE_DIR,
+)
+
+STATICFILES_DIRS = (
+    os.path.join(os.path.join(BASE_DIR, 'marketmoods'), 'static'),
+    BASE_DIR,
+)
 
 ALLOWED_HOSTS = []
 
@@ -41,6 +54,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'valence',
+    'graphs',
 )
 
 BOSS_API_KEY = 'dj0yJmk9cEpaUjdUWlBWZEZmJmQ9WVdrOVVFUTRRMEZXTkdVbWNHbzlNVGswTnpJM05UVTJNZy0tJnM9Y29uc3VtZXJzZWNyZXQmeD1kNg--'
@@ -54,10 +68,6 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
-
-STATICFILES_DIRS = (
-    os.path.join(os.path.join(BASE_DIR, 'marketmoods'),'static'),
-    )
 
 ROOT_URLCONF = 'marketmoods.urls'
 

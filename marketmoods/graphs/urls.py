@@ -7,5 +7,5 @@ from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('',
-                       url(r'^$', 'linegraph.views.index'),
+                       url(r'^line', 'graphs.views.linegraph'),
 )
