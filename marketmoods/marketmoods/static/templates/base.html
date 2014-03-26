@@ -1,0 +1,136 @@
+<html class=" js flexbox flexboxlegacy canvas canvastext webgl no-touch geolocation postmessage websqldatabase no-indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths" lang="en" data-useragent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.74.9 (KHTML, like Gecko) Version/7.0.2 Safari/537.74.9" style="">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Market Moods</title>
+
+  <!-- If you are using CSS version, only link these 2 files, you may add app.css to use for your overrides if you like. -->
+  <link rel="stylesheet" href="{{ STATIC_URL }}css/normalize.css">
+  <link rel="stylesheet" href="{{ STATIC_URL }}css/foundation.css">
+
+  <script src="{{ STATIC_URL }}js/vendor/modernizr.js"></script>
+    {% block head %}
+
+    {% endblock head %}
+
+</head>
+<body style="">
+ <!-- Header and Nav -->
+  <nav class="top-bar" data-topbar>
+    <ul class="title-area">
+      <!-- Title Area -->
+      <li class="name">
+        <h1>
+          <a href="/">
+            MarketMoods
+          </a>
+        </h1>
+      </li>
+      <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+    </ul>
+ 
+    <section class="top-bar-section">
+      <!-- Left Nav Section -->
+      <ul class="left">
+        <li class="divider"></li>
+        <li class="has-dropdown">
+          <a class="active" href="#">Graphs</a>
+          <ul class="dropdown">
+            <li><label>Free</label></li>
+            <li><a href="/graphs/line" class="">Line Graphs</a></li>
+            <li><a href="#">Dropdown Option</a></li>
+            <li><a href="#">Dropdown Option</a></li>
+            <li class="divider"></li>
+            <li><label>Premium</label></li>
+            <li><a href="#">Dropdown Option</a></li>
+            <li><a href="#">Dropdown Option</a></li>
+            <li><a href="#">Dropdown Option</a></li>
+            <li class="divider"></li>
+            <li><a href="#">See all →</a></li>
+          </ul>
+        </li>
+        <li class="divider"></li>
+        <li><a href="#">News</a></li>
+        <li class="divider"></li>
+        <li class="has-dropdown">
+          <a href="#">Valence</a>
+          <ul class="dropdown">
+            <li><a href="#">Dropdown Option</a></li>
+            <li><a href="#">Dropdown Option</a></li>
+            <li><a href="#">Dropdown Option</a></li>
+            <li class="divider"></li>
+            <li><a href="#">See all →</a></li>
+          </ul>
+        </li>
+       
+      </ul>
+ 
+      <!-- Right Nav Section -->
+      <ul class="right">
+        <li class="divider"></li>
+        <li class="has-dropdown">
+          <a href="#">Main Item 4</a>
+          <ul class="dropdown">
+            <li><label>Section Name</label></li>
+            <li class="has-dropdown">
+              <a href="#" class="">Has Dropdown, Level 1</a>
+              <ul class="dropdown">
+                <li><a href="#">Dropdown Options</a></li>
+                <li><a href="#">Dropdown Options</a></li>
+                <li class="has-dropdown">
+                  <a href="#">Has Dropdown, Level 2</a>
+                  <ul class="dropdown test">
+                    <li><a href="#">Subdropdown Option</a></li>
+                    <li><a href="#">Subdropdown Option</a></li>
+                    <li><a href="#">Subdropdown Option</a></li>
+                  </ul>
+                </li>
+                <li><a href="#">Subdropdown Option</a></li>
+                <li><a href="#">Subdropdown Option</a></li>
+                <li><a href="#">Subdropdown Option</a></li>
+              </ul>
+            </li>
+            <li><a href="#">Dropdown Option</a></li>
+            <li><a href="#">Dropdown Option</a></li>
+            <li class="divider"></li>
+            <li><label>Section Name</label></li>
+            <li><a href="#">Dropdown Option</a></li>
+            <li><a href="#">Dropdown Option</a></li>
+            <li><a href="#">Dropdown Option</a></li>
+            <li class="divider"></li>
+            <li><a href="#">See all →</a></li>
+          </ul>
+        </li>
+        <li class="divider"></li>
+        <li><a href="#">Main Item 5</a></li>
+        <li class="divider"></li>
+        <li class="has-dropdown">
+          <a href="#">Main Item 6</a>
+          <ul class="dropdown">
+            <li><a href="#">Dropdown Option</a></li>
+            <li><a href="#">Dropdown Option</a></li>
+            <li><a href="#">Dropdown Option</a></li>
+            <li class="divider"></li>
+            <li><a href="#">See all →</a></li>
+          </ul>
+        </li>
+      </ul>
+    </section>
+  </nav>
+ 
+ 
+  <!-- End Header and Nav -->
+
+ {% block content %}
+
+ {% endblock content %}
+
+    
+
+  <script src="{{ STATIC_URL }}js/vendor/jquery.js"></script>
+  <script src="{{ STATIC_URL }}js/foundation.min.js"></script>
+  <script>
+    $(document).foundation();
+  </script>
+    
+</body></html>
