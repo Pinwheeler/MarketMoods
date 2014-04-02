@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseBadRequest
 from django.template import Template, Context
 from django.db.models import Q
 
@@ -7,6 +7,7 @@ from valence.models import Company, Price
 
 import datetime,json,pdb
 import pytz
+import evaluate
 
 class Industry(object):
     name = ""
@@ -14,9 +15,12 @@ class Industry(object):
     toggled = False
     data = []
 
+
 today = datetime.datetime.today()
 master_industries = []
 charted_industries = {}
+master_companies = []
+charted_companies = {}
 
 def get_current_data():
     master_data = []
@@ -55,10 +59,11 @@ def current_data(request):
     data = [header,]
     dates = [(today - datetime.timedelta(num)).strftime('%Y-%m-%d') for num in range(8, 1, -1)]
     i = 0
+
     while i < len(dates):
         dateline = [dates[i][5:],]
         j = 0
-        while j < len(charted_industries.keys()):
+        while j < len(charted_industries.keys()):     # do all industry logic here
             key = charted_industries.keys()[j]
             if key not in header:
                 header.append(key)
@@ -67,6 +72,13 @@ def current_data(request):
                 if item[0] == dates[i]:
                     dateline.append(item[1])
             j += 1
+        k = 0
+        while k < len(charted_companies.keys()):
+            key = charted_companies.keys()[k]
+            if key not in header:
+                header.append(key)
+                header.append(key + " Predicted")
+
         data.append(dateline)
         i += 1
     jdata = json.dumps(data)
@@ -95,32 +107,50 @@ def linegraph(request):
 
 def toggle(request):
     indus = request.GET['ind']
+    com = request.GET['co']
     dates = [today-datetime.timedelta(num) for num in range(8, 1, -1)]
-    if indus in charted_industries.keys():
-        print indus
-        ind_obj = charted_industries[indus]
-        ind_obj.toggled = False
-        ind_obj.data = []
-        del charted_industries[indus]
-    else:
-        indus_object = industry_for_name(indus)
-        datum = []
-        for date in dates:
-            #add industry average performance for the date
-            count = 0
-            avg_performance = 0.
-            for company in Company.objects.filter(industry=indus):
-                #print company
-                for price in Price.objects.filter(company=company, date=date):
-                    #print price
-                    avg_performance += float(price.price)
-                    count += 1
-            avg_performance = avg_performance / count
-            datum.append([date.strftime('%Y-%m-%d'), avg_performance])
-        indus_object.data = datum
-        indus_object.toggled = True
-        charted_industries[str(indus)]=indus_object
-    return HttpResponse('')
+    if indus is not None:
+        if indus in charted_industries.keys():
+            print indus
+            ind_obj = charted_industries[indus]
+            ind_obj.toggled = False
+            ind_obj.data = []
+            del charted_industries[indus]
+        else:
+            indus_object = industry_for_name(indus)
+            datum = []
+            for date in dates:
+                #add industry average performance for the date
+                count = 0
+                avg_performance = 0.
+                for company in Company.objects.filter(industry=indus):
+                    #print company
+                    for price in Price.objects.filter(company=company, date=date):
+                        #print price
+                        avg_performance += float(price.price)
+                        count += 1
+                avg_performance = avg_performance / count
+                datum.append([date.strftime('%Y-%m-%d'), avg_performance])
+            indus_object.data = datum
+            indus_object.toggled = True
+            charted_industries[str(indus)]=indus_object
+        return HttpResponse('')
+
+    if com is not None:
+        if com in charted_companies.keys():
+            print com
+            datum = []
+            args = {}
+            args['ticker'] = com
+            company = Company.objects.get(ticker=com)
+            for date in dates:
+                datum.append(evaluate.evaluate(date=date,company=args))
+        return HttpResponse('')
+
+
+
+
+    return HttpResponseBadRequest
 
 def search(request):
     query = request.GET['q']

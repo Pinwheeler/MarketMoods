@@ -2,18 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e955970c-78dc-4f2f-94a2-34ba4235f4cc" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/marketmoods/graphs/templates/graph.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/marketmoods/graphs/templates/linegraph.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/marketmoods/marketmoods/static/css/style.css" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/marketmoods/graphs/static/js/linegraph.js" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/marketmoods/marketmoods/templates/base.html" afterPath="$PROJECT_DIR$/marketmoods/marketmoods/templates/base.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/marketmoods/graphs/static/js/excanvas.min.js" afterPath="$PROJECT_DIR$/marketmoods/graphs/static/js/excanvas.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/marketmoods/marketmoods/static/css/foundation.css" afterPath="$PROJECT_DIR$/marketmoods/marketmoods/static/css/foundation.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/marketmoods/get_historical_prices.py" afterPath="$PROJECT_DIR$/marketmoods/get_historical_prices.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/marketmoods/graphs/static/js/jquery.jqplot.min.js" afterPath="$PROJECT_DIR$/marketmoods/graphs/static/js/jquery.jqplot.min.js" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/BeautifulSoup.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/marketmoods.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/marketmoods/timex.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/marketmoodslauncher.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/marketmoodspred.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/marketmoodssin.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/nyaindex.csv" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/marketmoods/graphs/templates/linegraph.html" afterPath="$PROJECT_DIR$/marketmoods/graphs/templates/linegraph.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/marketmoods/valence/models.py" afterPath="$PROJECT_DIR$/marketmoods/valence/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/marketmoods/graphs/urls.py" afterPath="$PROJECT_DIR$/marketmoods/graphs/urls.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/marketmoods/graphs/views.py" afterPath="$PROJECT_DIR$/marketmoods/graphs/views.py" />
     </list>
     <ignored path="MarketMoods.iws" />
@@ -76,7 +72,7 @@
       <file leaf-file-name="views.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/marketmoods/graphs/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="83" column="41" selection-start="2146" selection-end="2146" vertical-scroll-proportion="0.92045456" vertical-offset="435" max-vertical-offset="2310">
+            <state line="9" column="15" selection-start="270" selection-end="270" vertical-scroll-proportion="0.1534091" vertical-offset="0" max-vertical-offset="2760">
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
               </folding>
@@ -93,19 +89,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="get_historical_prices.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/marketmoods/get_historical_prices.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="24" selection-start="466" selection-end="466" vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="870">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="linegraph.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/marketmoods/graphs/templates/linegraph.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="35" column="0" selection-start="1419" selection-end="1419" vertical-scroll-proportion="0.0" vertical-offset="525" max-vertical-offset="855">
+            <state line="46" column="0" selection-start="1766" selection-end="1766" vertical-scroll-proportion="0.0" vertical-offset="690" max-vertical-offset="1020">
               <folding />
             </state>
           </provider>
@@ -151,8 +138,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="754" />
-    <option name="y" value="385" />
+    <option name="x" value="909" />
+    <option name="y" value="390" />
     <option name="width" value="1172" />
     <option name="height" value="1000" />
   </component>
@@ -612,7 +599,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="754" y="385" width="1172" height="1000" extended-state="0" />
+    <frame x="909" y="390" width="1172" height="1000" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -720,13 +707,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/marketmoods/get_historical_prices.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="24" selection-start="466" selection-end="466" vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="870">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/marketmoods/graphs/templates/linegraph.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="34" column="0" selection-start="1376" selection-end="1376" vertical-scroll-proportion="0.0" vertical-offset="510" max-vertical-offset="840">
@@ -783,23 +763,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/marketmoods/get_historical_prices.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="24" selection-start="466" selection-end="466" vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="870">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/marketmoods/graphs/templates/linegraph.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="9" column="17" selection-start="302" selection-end="302" vertical-scroll-proportion="0.0" vertical-offset="135" max-vertical-offset="330">
           <folding />
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/marketmoods/companyloader.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="19" selection-start="532" selection-end="532" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="585" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/marketmoods/marketmoods/templates/home.html">
@@ -834,13 +802,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/marketmoods/get_historical_prices.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="24" selection-start="466" selection-end="466" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="870">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/marketmoods/graphs/templates/linegraph.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="2" column="3" selection-start="82" selection-end="82" vertical-scroll-proportion="0.0" vertical-offset="30" max-vertical-offset="150">
@@ -850,7 +811,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/marketmoods/graphs/templates/linegraph.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="0" selection-start="1419" selection-end="1419" vertical-scroll-proportion="0.0" vertical-offset="525" max-vertical-offset="855">
+        <state line="46" column="0" selection-start="1766" selection-end="1766" vertical-scroll-proportion="0.0" vertical-offset="690" max-vertical-offset="1020">
           <folding />
         </state>
       </provider>
@@ -883,7 +844,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/marketmoods/graphs/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="83" column="41" selection-start="2146" selection-end="2146" vertical-scroll-proportion="0.92045456" vertical-offset="435" max-vertical-offset="2310">
+        <state line="9" column="15" selection-start="270" selection-end="270" vertical-scroll-proportion="0.1534091" vertical-offset="0" max-vertical-offset="2760">
           <folding>
             <element signature="e#0#35#0" expanded="true" />
           </folding>

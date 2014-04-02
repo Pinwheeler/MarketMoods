@@ -22,7 +22,7 @@
 
                 var options = {
                     title: 'Stock Performance',
-                    vAxis: { title: "Stock Price" },
+                    vAxis: { title: "Price" },
                     hAxis: { title: "Date" },
                 }
 
@@ -42,6 +42,17 @@
                 ind_string = industry.replace(" ","_");
                 console.log(ind_string)
                 $("#"+ind_string+'_button').toggleClass('toggled');
+            }
+
+            function toggle_co(company)
+            {
+                var ticker = company.slice(1,company.length);
+                $.ajax({
+                    url:'toggle/',
+                    data:'co='+ticker,
+                    success: drawChart
+                })
+                $("#"+company+'_button').toggleClass('toggled');
             }
 
 
