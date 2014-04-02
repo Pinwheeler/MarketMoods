@@ -1,0 +1,31 @@
+@import 'foundation.css';
+
+.reddy{
+padding:9px 0 10px;
+}
+
+.toggled{
+	background-color: #325392;
+}
+
+.close{
+	color: #ffffff;
+}
+
+.searchbar {
+	margin: 0px;
+}
+
+.search-result {
+	margin: 0px;
+	background-color: #1cbbcd;
+	width: 210px;
+}
+
+#search_results {
+	z-index: 10;
+}
+
+.chart-button a:hover {
+	color: #d3130c;
+}

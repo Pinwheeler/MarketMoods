@@ -1,0 +1,108 @@
+{% extends "base.html" %}
+
+{% block head %}
+  <!--[if lt IE 9]><script language="javascript" type="text/javascript" src="{{ STATIC_URL }}js/excanvas.js"></script><![endif]-->
+  <script type="text/javascript">
+    $(document).ready(function () {
+        $('#searchbar').keyup(function () {
+          //clear the old results
+          $('#search_results').empty();
+
+          // get search results for the currently input text
+          var search_str = $('#searchbar').val();
+          if (search_str.length) {
+            var jsonData = $.ajax({
+                url:'search/',
+                data:'q='+search_str,
+                dataType:"json",
+                async: false
+                }).responseText;
+            // display those results in the search dropdown div
+            var arrResults = $.parseJSON(jsonData);
+            for (var dex in arrResults)
+            {
+              var item = arrResults[dex]
+              $("#search_results").append("<button type='button' class='button [tiny tiny tiny] expand search-result' onclick='add_co("+'"'+item+'"'+")'><pre>  "+item+"  </pre></button> ");
+            }
+          }
+        });
+      });
+  </script>
+  {% block ajax %}
+  {% endblock ajax %}
+{% endblock head %}
+
+{% block content %}
+
+
+
+  <div class="row" id="container">
+
+    <!-- Main Content Section -->
+    <!-- This has been source ordered to come first in the markup (and on small devices) but to be to the right of the nav on larger screens -->
+    <div class="large-9 push-3 columns">
+
+      <h3>Line Graphing Tool </h3>
+
+      <i><p>This chart is used to plot the performance of companies, industries, or sectors across a period of time. For more information on how to use this tool, see the documentation.</p></i>
+      <div id="chart_div" style="height:400px;width:850px; "></div>
+
+
+    </div>
+
+    <!-- Nav Sidebar -->
+    <!-- This is source ordered to be pulled to the left on larger screens -->
+    <div class="large-3 pull-9 columns"
+    id="searchdiv"
+    style="
+    font:16px/26px Georgia, Garamond, Serif;
+    height:50px;">
+      <div class="row collapse" style="height: 39px">
+        <div class="large-12 small-9 columns expand searchbar" style="height: 39px">
+          <input type="text" id="searchbar" placeholder="Search Companies" style="height: 39px">
+        </div>
+      </div>
+      <div id="search_results" class="large-12 small-9 columns expand popover">
+      </div>
+    </div>
+
+    <div class="large-3 pull-9 columns"
+    id="chart_options"
+    style="
+    font:16px/26px Georgia, Garamond, Serif;
+    height:500px;
+    overflow:auto;">
+
+      {% for industry in industries %}
+        <button type="button" class="{% if industry.toggled %}toggled{% endif %} button [tiny small large radius round] expand text-left chart-button" id="{{ industry.name.split|join:"_" }}_button" onclick="toggle_indus('{{ industry.name }}')">
+            <pre>  {{ industry.name }}<a href="#" onclick="remove_button('{{ industry.name.split|join:'_' }}_button')" class="close right">&times;  </a></pre>
+        </button>
+
+      {% endfor %}
+
+    </div>
+
+
+
+
+  </div>
+  <script type="text/javascript">
+    function add_co(company)
+    {
+      //clear the search results
+      $('#search_results').empty();
+      //clear the search bar
+      $('#searchbar').val("");
+      ticker = company.match(/\[.*\]/);
+      var b = "<button type='button' class='button [tiny small large radius round] expand text-left chart-button' id='"+ticker+"_button' onclick='toggle_co("+ticker+")'> <pre>  "+company+"<a href='#' class='close right'>&times;  </a></pre></button>";
+      $("#chart_options").append(b);
+    }
+    function remove_button(button_id)
+    {
+      $('#'+button_id).click()
+      document.getElementById(button_id).remove();
+    }
+  </script>
+
+
+{% endblock content %}

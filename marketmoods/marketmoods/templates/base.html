@@ -6,9 +6,11 @@
 
   <!-- If you are using CSS version, only link these 2 files, you may add app.css to use for your overrides if you like. -->
   <link rel="stylesheet" href="{{ STATIC_URL }}css/normalize.css">
-  <link rel="stylesheet" href="{{ STATIC_URL }}css/foundation.css">
+  <link rel="stylesheet" href="{{ STATIC_URL }}css/style.css">
 
   <script src="{{ STATIC_URL }}js/vendor/modernizr.js"></script>
+  <script src="//code.jquery.com/jquery-1.9.1.js"></script>
+  <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
     {% block head %}
 
     {% endblock head %}
@@ -22,7 +24,7 @@
       <li class="name">
         <h1>
           <a href="/">
-            MarketMoods
+            <font color="#26A805">Market</font><font color="#008cba">Moods</font>
           </a>
         </h1>
       </li>
@@ -120,12 +122,11 @@
  
  
   <!-- End Header and Nav -->
-
- {% block content %}
-
- {% endblock content %}
-
-
+  <div id="content">
+    <p></p>
+    {% block content %}
+    {% endblock content %}
+  </div>
    <!-- Footer -->
 
   <footer class="row">
@@ -149,10 +150,13 @@
 
     
 
-  <script src="{{ STATIC_URL }}js/vendor/jquery.js"></script>
   <script src="{{ STATIC_URL }}js/foundation.min.js"></script>
   <script>
     $(document).foundation();
   </script>
+
+
+
+
     
 </body></html>

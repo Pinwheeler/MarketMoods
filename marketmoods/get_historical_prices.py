@@ -1,7 +1,7 @@
 import os
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'marketmoods.settings')
 
-import csv,ystockquote
+import ystockquote
 import datetime
 from valence.models import Price, Company
 today = datetime.date.today()
